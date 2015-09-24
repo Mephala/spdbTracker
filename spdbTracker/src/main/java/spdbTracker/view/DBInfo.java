@@ -24,12 +24,12 @@ public class DBInfo {
 			String myExternalIp = in.readLine(); // you get the IP as a String
 			System.out.println("Outbound ip:" + myExternalIp);
 			System.out.println("Getting official server outbound ip....");
-			URL getExternalIp = new URL("http://mobile-gourmet.com/getExternalIp/");
+			URL getExternalIp = new URL("http://mobile-gourmet.com/getExternalIp.do");
 			BufferedReader in2 = new BufferedReader(new InputStreamReader(getExternalIp.openStream()));
 			String externalIp = in2.readLine(); // you get the IP as a String
 			System.out.println("Server Outbound IP:" + externalIp);
 			System.out.println("Getting official server local ip....");
-			URL getServerUrl = new URL("http://mobile-gourmet.com/getLocalIp/");
+			URL getServerUrl = new URL("http://mobile-gourmet.com/getLocalIp.do");
 			BufferedReader in3 = new BufferedReader(new InputStreamReader(getServerUrl.openStream()));
 			String serverIp = in3.readLine(); // you get the IP as a String
 			System.out.println("Server Local IP:" + serverIp);

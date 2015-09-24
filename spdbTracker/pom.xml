@@ -8,7 +8,7 @@
      <properties>
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <assemble.output.directory>/gokhanabi/Desktop</assemble.output.directory>
+    <assemble.output.directory>/home/gokahanabi/Desktop</assemble.output.directory>
   </properties>
 
   <build>
@@ -32,7 +32,7 @@
 		      <configuration>
 		        <archive>
 		          <manifest>
-		            <mainClass>greGuesser.GreWordGuesserFrame</mainClass>
+		            <mainClass>spdbTracker.view.MainFrame</mainClass>
 		          </manifest>
 		        </archive>
 		        <descriptorRefs>
