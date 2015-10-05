@@ -1,9 +1,6 @@
 package spdbTracker.view;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.math.BigDecimal;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -18,25 +15,32 @@ public class DBInfo {
 	public static String getDBInfoText() {
 		try {
 			System.out.println("Getting outbound ip....");
-			String jdbcUrl = null;
-			URL whatismyip = new URL("http://checkip.amazonaws.com");
-			BufferedReader in = new BufferedReader(new InputStreamReader(whatismyip.openStream()));
-			String myExternalIp = in.readLine(); // you get the IP as a String
-			System.out.println("Outbound ip:" + myExternalIp);
-			System.out.println("Getting official server outbound ip....");
-			URL getExternalIp = new URL("http://mobile-gourmet.com/getExternalIp.do");
-			BufferedReader in2 = new BufferedReader(new InputStreamReader(getExternalIp.openStream()));
-			String externalIp = in2.readLine(); // you get the IP as a String
-			System.out.println("Server Outbound IP:" + externalIp);
-			System.out.println("Getting official server local ip....");
-			URL getServerUrl = new URL("http://mobile-gourmet.com/getLocalIp.do");
-			BufferedReader in3 = new BufferedReader(new InputStreamReader(getServerUrl.openStream()));
-			String serverIp = in3.readLine(); // you get the IP as a String
-			System.out.println("Server Local IP:" + serverIp);
-			if (myExternalIp.equals(externalIp))
-				jdbcUrl = serverIp.replace("/serviceProvider/", "");
-			else
-				jdbcUrl = "http://sert-yapi.com";
+			String jdbcUrl = "http://sert-yapi.com";
+			;
+			// URL whatismyip = new URL("http://checkip.amazonaws.com");
+			// BufferedReader in = new BufferedReader(new
+			// InputStreamReader(whatismyip.openStream()));
+			// String myExternalIp = in.readLine(); // you get the IP as a
+			// String
+			// System.out.println("Outbound ip:" + myExternalIp);
+			// System.out.println("Getting official server outbound ip....");
+			// URL getExternalIp = new
+			// URL("http://mobile-gourmet.com/getExternalIp.do");
+			// BufferedReader in2 = new BufferedReader(new
+			// InputStreamReader(getExternalIp.openStream()));
+			// String externalIp = in2.readLine(); // you get the IP as a String
+			// System.out.println("Server Outbound IP:" + externalIp);
+			// System.out.println("Getting official server local ip....");
+			// URL getServerUrl = new
+			// URL("http://mobile-gourmet.com/getLocalIp.do");
+			// BufferedReader in3 = new BufferedReader(new
+			// InputStreamReader(getServerUrl.openStream()));
+			// String serverIp = in3.readLine(); // you get the IP as a String
+			// System.out.println("Server Local IP:" + serverIp);
+			// if (myExternalIp.equals(externalIp))
+			// jdbcUrl = serverIp.replace("/serviceProvider/", "");
+			// else
+			// jdbcUrl = "http://sert-yapi.com";
 			jdbcUrl = constructJdbcFromServerHttpUrl(jdbcUrl);
 			jdbcUrl = constructCredentials(jdbcUrl);
 			Class.forName("com.mysql.jdbc.Driver");
